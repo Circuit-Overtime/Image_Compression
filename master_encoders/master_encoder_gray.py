@@ -232,4 +232,4 @@ def save_decoded_image(image_path, output_path, save_intermediate=False):
   
 
 
-save_decoded_image("./sp_img/exp.jpg", "./enc_op/decoded_image.jpg", save_intermediate=True)
+# save_decoded_image("./sp_img/exp.jpg", "./enc_op/decoded_image.jpg", save_intermediate=True)
