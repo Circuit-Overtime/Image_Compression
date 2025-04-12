@@ -123,7 +123,3 @@ def save_decoded_image(image_path, output_path, save_intermediate=False):
 
     except Exception as e:
         print(f"An error occurred: {e}")
-
-
-# Example usage:
-# save_decoded_image("./sp_img/sbw2.png", "./enc_op/decoded_output.png", save_intermediate=True)

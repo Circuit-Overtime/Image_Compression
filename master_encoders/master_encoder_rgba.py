@@ -166,9 +166,3 @@ def save_decoded_image(image_path, output_path, save_intermediate=False):
 
     except Exception as e:
         print(f"An error occurred: {e}")
-
-
-if __name__ == "__main__":
-    image_path = "./sp_img/exp_rgba.png" # replace with a path to your image
-    decoded_path = "./enc_op/decoded_rgba_output.png"
-    # save_decoded_image(image_path, decoded_path, save_intermediate=True)

@@ -230,6 +230,3 @@ def save_decoded_image(image_path, output_path, save_intermediate=False):
         print(f"An error occurred: {e}")
 
   
-
-
-# save_decoded_image("./sp_img/exp.jpg", "./enc_op/decoded_image.jpg", save_intermediate=True)
