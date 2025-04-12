@@ -96,6 +96,15 @@ print(image_type)  # Outputs: BW, Grayscale, RGB, or RGBA
 
 ----
 
+# Compression Time by Category
+![image](https://github.com/user-attachments/assets/ddca38f7-a34d-40cc-af91-cc234f05e741)
+
+# Decompression Time by Category 
+![image](https://github.com/user-attachments/assets/d416bb51-5620-485e-baef-2c7cd8490fc3)
+
+
+----
+
 # 📌 Compression Strategies Used
 
 **Each encoder chooses the best available strategy based on content**:
