@@ -109,29 +109,29 @@ The best compression method is automatically chosen based on statistical analysi
 
 # ✅ Requirements
 
-- ### Python 3.7+
-- ### Pillow (pip install pillow)
-- ### NumPy (pip install numpy)
+- **Python 3.7+**
+- **Pillow (pip install pillow)**
+- **NumPy (pip install numpy)**
 
 > ## **Optional: Brotli support requires pip install brotli**
 
 
 # 🧠 Notes
 
-- ### .lix is a custom intermediate binary format, not a standard image format.
-- ### This system is designed for experimentation and research.
-- ### Not compatible with web browsers or image viewers directly.
-- ### Focus is on compression ratio and speed over compatibility.
+- **.lix is a custom intermediate binary format, not a standard image format.**
+- **This system is designed for experimentation and research.**
+- **Not compatible with web browsers or image viewers directly.**
+- **Focus is on compression ratio and speed over compatibility.**
 
 # ✨ Future Work
 
-- ### Add GUI for drag-and-drop compression
+- **Add GUI for drag-and-drop compression**
 
-- ### Add support for animated images (GIFs)
+- **Add support for animated images (GIFs)**
 
-- ### Extend to video frame compression
+- **Extend to video frame compression**
 
-- ### Explore neural network–assisted lossless compression
+- **Explore neural network–assisted lossless compression**
 
 # 👨‍💻 Author
 
