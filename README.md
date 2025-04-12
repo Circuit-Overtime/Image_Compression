@@ -47,12 +47,21 @@ A custom image compression pipeline designed for efficient storage and transmiss
 
 ## ⚙️ How It Works
 
-1. **Input Image** ➜
-2. **Classified** as one of: BW / Grayscale / RGB / RGBA ➜
-3. **Encoded** using optimized compression pipelines ➜
-4. **.lix File** is created ➜
-5. **Decoded Output** is reconstructed and saved ➜
-6. **Benchmarking** evaluates compression efficiency
+```mermaid
+graph TD
+    A[Input Image] --> B{Classified}
+    B --> C[BW]
+    B --> D[Grayscale]
+    B --> E[RGB]
+    B --> F[RGBA]
+    C --> G[Encoded using optimized compression pipelines]
+    D --> G
+    E --> G
+    F --> G
+    G --> H[.lix File is created]
+    H --> I[Decoded Output is reconstructed and saved]
+    I --> J[Benchmarking evaluates compression efficiency]
+```
 
 ---
 
