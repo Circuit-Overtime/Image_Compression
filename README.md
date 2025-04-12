@@ -135,8 +135,8 @@ The best compression method is automatically chosen based on statistical analysi
 
 # 👨‍💻 Author
 
-- ## Developed by [Ayushman Bhattacharya], 2025
-- ## Inspired by the need for efficient, flexible, and intelligent image compression systems.
+- Developed by [Ayushman Bhattacharya], 2025
+- Inspired by the need for efficient, flexible, and intelligent image compression systems.
 
 # 📄 License
 **MIT License – use freely, credit appreciated!**
