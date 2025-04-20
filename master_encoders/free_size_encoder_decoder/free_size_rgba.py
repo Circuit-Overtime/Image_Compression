@@ -4,7 +4,6 @@ import brotli
 import struct
 import os
 
-
 def delta_encode_rgba(image_array):
     image_array = image_array.astype(np.int16)
     delta = np.zeros_like(image_array, dtype=np.uint8)
@@ -12,23 +11,14 @@ def delta_encode_rgba(image_array):
     delta[1:] = ((image_array[1:] - image_array[:-1]) % 256).astype(np.uint8)
     return delta
 
-
 def bitpack_rgba(delta_array):
-    return delta_array.astype(np.uint8).tobytes()
-
+    return delta_array.astype(np.uint8).tobytes()  # No downshift!
 
 def compress_rgba_with_hybrid(image_array):
     delta = delta_encode_rgba(image_array)
     packed = bitpack_rgba(delta)
     compressed = brotli.compress(packed)
-
-    # Check if compression actually reduced the size
-    if len(compressed) < len(image_array.tobytes()):
-        return compressed
-    else:
-        print("Compression was not effective. Using original data.")
-        return image_array.tobytes()  # No compression, just return raw bytes.
-
+    return compressed
 
 def delta_encode_alpha(alpha_channel):
     alpha_channel = alpha_channel.astype(np.int16)
@@ -37,22 +27,18 @@ def delta_encode_alpha(alpha_channel):
     delta[1:] = ((alpha_channel[1:] - alpha_channel[:-1]) % 256).astype(np.uint8)
     return delta
 
-
 def compress_alpha_channel(alpha_channel):
     flat_alpha = alpha_channel.flatten()
     delta_alpha = delta_encode_alpha(flat_alpha)
     compressed = brotli.compress(delta_alpha.tobytes())
     return compressed, b'\x01'
 
-
 def is_opaque(alpha_channel):
     return np.all(alpha_channel == 255)
-
 
 def is_strict_binary_alpha(alpha_channel):
     unique_vals = np.unique(alpha_channel)
     return np.array_equal(unique_vals, [0]) or np.array_equal(unique_vals, [0, 255])
-
 
 def encode_lix_rgba(image_path):
     img = Image.open(image_path).convert("RGBA")
@@ -98,7 +84,6 @@ def delta_decode_rgba(packed):
 
     return result.astype(np.uint8)
 
-
 def delta_decode_alpha(data):
     arr = np.frombuffer(data, dtype=np.uint8).astype(np.int16)
     result = np.zeros_like(arr, dtype=np.int16)
@@ -106,7 +91,6 @@ def delta_decode_alpha(data):
     for i in range(1, len(arr)):
         result[i] = (result[i - 1] + arr[i]) % 256
     return result.astype(np.uint8)
-
 
 def decode_lix_rgba(lix_data):
     data = lix_data
@@ -179,12 +163,12 @@ def save_decoded_image(image_path, output_path, save_intermediate=False):
 
         print(f"📊 Compression Ratio: {compression_ratio:.2f} (Original Size: {original_size} bytes, Compressed Size: {compressed_size} bytes)")
 
+
     except Exception as e:
         print(f"An error occurred: {e}")
 
-
 save_decoded_image(
-    image_path="master_encoders/free_size_encoder_decoder/rgba_4.png",
-    output_path="master_encoders/free_size_encoder_decoder/output/decoded_rgba.png",
-    save_intermediate=False
+    image_path="master_encoders/free_size_encoder_decoder/rgba_1.png",
+    output_path="master_encoders/free_size_encoder_decoder/output/decoded_rgba_1.png",
+    save_intermediate=True
 )
