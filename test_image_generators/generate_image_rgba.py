@@ -27,22 +27,21 @@ rgba_prompts = [
     "chess piece on white floor",
 ]
 
-def generate_rgba_images(output_folder="./test_images/rgba"):
+def generate_rgba_images(output_folder="./test_images/rgba_full"):
     os.makedirs(output_folder, exist_ok=True)
     base_url = "https://image.pollinations.ai/prompt/"
 
     for i, prompt in enumerate(rgba_prompts):
-        url = f"{base_url}{prompt}?height=256&width=256&nologo=true"
+        url = f"{base_url}{prompt}?height=576&width=1024&nologo=true"
         try:
             response = requests.get(url)
             response.raise_for_status()
 
-            # Convert to RGB and resize
-            original_img = Image.open(BytesIO(response.content)).convert('RGB').resize((128, 128))
 
             # Remove background
             img_bytes = BytesIO()
-            original_img.save(img_bytes, format="PNG")
+            img = Image.open(BytesIO(response.content))
+            img.save(img_bytes, format="PNG")
             img_bytes = img_bytes.getvalue()
 
             output = remove(img_bytes)  # returns RGBA
